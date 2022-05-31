@@ -1,0 +1,39 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: antiquewhite;
+  
+}
+.icon {
+   color: blue;
+   
+}
+.messageErreur {
+    display: none;
+    color: red;
+    font-size: 25px;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin:     ;
+    padding: 10px;
+    background-color: rgb(240, 155, 155);
+}
+
+.budget-form {
+    border: 1px solid green;
+    color: green;
+    
+}
+.expense-form {
+    border: 1px solid red;
+    
+}
+.erreurBudget {
+    display: none;
+}
+.erreurExpense {
+    display: none;
+}
