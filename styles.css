@@ -7,33 +7,25 @@ body {
     background-color: antiquewhite;
   
 }
-.icon {
-   color: blue;
-   
-}
 .messageErreur {
     display: none;
     color: red;
     font-size: 25px;
     border: 1px solid red;
     border-radius: 10px;
-    margin:     ;
+  
     padding: 10px;
     background-color: rgb(240, 155, 155);
 }
-
-.budget-form {
+.erreurBudget{
+    display: none;
+}
+.erreurExpense{
+    display: none;
+}
+#budgetForm {
     border: 1px solid green;
-    color: green;
-    
 }
-.expense-form {
+#expenseForm{
     border: 1px solid red;
-    
-}
-.erreurBudget {
-    display: none;
-}
-.erreurExpense {
-    display: none;
 }

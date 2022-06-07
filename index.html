@@ -1,101 +1,81 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <!-- bootstrap css -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <!-- main css -->
-  <title>budget app</title>
- 
- <!-- google fonts -->
- <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-
- <!-- font awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <link rel="stylesheet" href="styles.css">
- <style>
- </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>budget.app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 </head>
-
 <body>
- <div class="container-fluid">
-        <div class="row">
-            <h2 class="text-uppercase m-4 text-center text-primary">budget app</h2>
-            <div class="col-5  pt-3">
+<div class="container">
+    <div class="row">
+        <h2 class="text-uppercase m-4 text-center text-primary">budget app</h2>
+        <div class="col">
+            
+<form class="  p-2 my-4 " id="budgetForm">
+    <div class="erreurBudget alert alert-danger ">Valeur negative ou null</div> 
+    <div class="mb-3">
+        <label>Please Enter Your Budget</label>
+        <input type="number" class="form-control" id="budgetInput"  >
+      </div>
+      <button  id="calElem" class="btn btn-outline-success w-25 Calculate " >Calculate</button>
+</form>
 
-                    <!-- debut fomulaire budget et message d'erreur -->
-                <div class="erreurBudget alert alert-danger ">Valeur negative ou null</div>                   
-                 <form id="budget-form" class=" budget-form p-4 m-5">
-                    <h5 class="text-capitalize">please enter your budget</h5>
-                    <div class="form-group">
-                        <input type="number" class="form-control budget-input" id="budget-input">
-                    </div>
-                    <button type="submit" class="btn btn-success text-capitalize budget-submit text-ligth mt-1 " id="budget-submit">calculate</button>
-                </form>
-                  <!-- fin fomulaire budget et message d'erreur -->
-
-                  <!-- debut fomulaire depense et message d'erreur -->
-                  <div class="erreurBudget alert alert-danger ">Valeur negative ou null</div> 
-                <form id="expense-form" class=" expense-form p-4 text-danger m-5">
-                    <h5 class="text-capitalize">please enter your expense</h5>
-                    <div class="form-group">
-                        <input type="text" class="form-control expense-input" id="expense-input">
-                    </div>
-                    <h5 class="text-capitalize">please enter expense amount</h5>
-                    <div class="form-group">
-                        <input type="number" class="form-control expense-input" id="amount-input">
-                    </div>
-                    <button type="submit" class="btn btn-danger text-capitalize expense-submit text-ligth mt-1" id="expense-submit">add expense</button>
-                    </form>
-                     <!-- fin fomulaire depense et message d'erreur -->
+<form  class="  p-2 my-4" id="expenseForm">
+    <div class="erreurExpense alert alert-danger ">Valeur negative ou null</div> 
+    <div class="mb-2">
+        <label  >Please Enter Your Expense</label>
+        <input type="text" class="form-control " id="expenseInput"  >
+      </div>
+      <div class="mb-2">
+        <label >Please Enter Expense Amount</label>
+        <input type="number" class="form-control" id="amountInput">
+      </div>
+      <button type="submit" id="addExpense" class="btn btn-outline-danger w-25">Add Expense</button>
+</form>
+        </div>
+        <div class="col">
+            <div class="row my-4">
+                <div class="col text-center">
+                    <h3>BUDGET</h3>
+                    <i class="bi bi-cash display-6 text-success"></i>
+                    <h2 class=" text-success" > <span id="balanceTotal"> 0 </span>  <span>CFA</span></h2>
+                   
                 </div>
-                <div class="col  mt-5">
-                    <div class="row ">
-                    <div class="col-4 text-center mb-2">
-                        <h3 class="info-title">BUDGET</h3>
-                        <span class="budget-icon"><i class="fas fa-money-bill-alt text-success display-5"></i></span>
-                        <h4 class="text-uppercase mt-2 budget text-success" ><span id="budgetTotal">0</span><span> Fcfa </span></h4>
-                    </div>
-                    <div class="col-4 text-center">
-                        <h3 class="text-uppercase info-title ">EXPENSE</h3>
-                        <span class="expense-icon "><i class="far fa-credit-card text-danger display-5"></i></span>
-                        <h4 class="text-uppercase mt-2 expense text-danger" id="expense"><span id="expense-amount">0</span><span> Fcfa</span></h4>
-                    </div>
-                    <div class="col-4 text-center">
-                        <h3 class="info-title">BALANCE</h3>
-                        <span class="balance-icon text-success"><i class="fas fa-dollar-sign display-5"></i></span>
-                        <h4 class="text-uppercase mt-2 balance text-success" ><span id="balance-amount">0</span><span> Fcfa</span></h4>
-                    </div>
-                    </div>
-
-                <div class="row">
-                    <div class="col text-center pt-5">
-                         <!-- expense list -->
-                        <div class="expense-list" id="expense-list">
-                            <div class="expense-list__info d-flex justify-content-between text-capitalize">
-                                <h5 class="list-item col-4">expense title</h5>
-                                <h5 class="list-item col-4">expense value</h5>
-                                <h5 class="list-item col-4"></h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col text-center">
+                    <h3>EXPENSE</h3>
+                    <i class="bi bi-credit-card-2-back display-6 text-danger"></i>
+                    <h2 class="expense text-danger" > <span id="balanceExpense"> 0 </span> <span>CFA</span></h2>
+                   
                 </div>
-
+                <div class="col text-center">
+                    <h3>BALANCE</h3>
+                    <i class="bi bi-currency-dollar display-6 text-success"></i>
+                    <h2 class="expense text-success" > <span id="balanceValue"> 0 </span>  CFA</h2>
+                    
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p>Expense Title</p>
+               
+                </div>
+                <div class="col text-center">
+                    <p>Expense Value</p>
+                    
+                </div>
+                <div class="col text-center"></div>
+            </div>
+            <div class="row"  id="container">
+               
             </div>
         </div>
- </div>
-
-
-
-
- <!-- jquery -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-  <!-- bootstrap js -->
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
- <!-- script js -->
- <script src="script.js"></script>
+    </div>
+</div>
+    
+    <script src="script.js"></script>
 </body>
-
-</html>
+</html> 
